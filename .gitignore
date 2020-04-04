@@ -2,3 +2,6 @@
 venv
 .idea/
 /src/geckodriver.log
+.ipynb_checkpoints/
+*.ipynb
+temp/
