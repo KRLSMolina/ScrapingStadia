@@ -1,2 +1,4 @@
 pandas
 Unidecode
+bs4
+numpy
