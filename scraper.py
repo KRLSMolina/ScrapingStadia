@@ -89,7 +89,7 @@ class StadiaScrapper:
         return output_df
 
     def get_games_info(self, df, min_score=1):
-        print("...Obtinint informació per a cada joc i plataforma...")
+        print("...Obtenint informació per a cada joc i plataforma...")
         df_filtered = df[df['score'] >= min_score]
         user_agent = {'User-agent': 'Mozilla/5.0'}
         game_info_dict = {
@@ -185,8 +185,7 @@ class StadiaScrapper:
         df_title_no_in['title'] = title_no_in
         df_final_selection = sel.append(df_title_no_in).sort_values('title').reset_index(drop=True)
 
-        df_final_selection.to_csv('delete.csv', index=False)
-        return linked_dfs
+        return df_final_selection
 
 
 if __name__ == '__main__':
