@@ -13,6 +13,7 @@ import unidecode
 from difflib import SequenceMatcher
 import numpy as np
 
+
 class StadiaScrapper:
     def get_games_names(self):
         print("Fent scraping dels noms dels videojocs disponibles a la web de stadia...")
@@ -65,7 +66,8 @@ class StadiaScrapper:
         return df
 
     def get_similarities_df(self, games_stadia, all_games_platform, output_df=None):
-        print('Fent match dels títols de {} entre Stadia i www.metacritics.com'.format(all_games_platform.iloc[0]['platform']))
+        print('Fent match dels títols de {} entre Stadia i www.metacritics.com'.format(
+            all_games_platform.iloc[0]['platform']))
         if output_df is None:
             output_df = pd.DataFrame()
         for game in games_stadia:
@@ -102,7 +104,7 @@ class StadiaScrapper:
             'n_online_multiplayer': [],
         }
         for idx, row in df_filtered.iterrows():
-            print('{} - {}'.format(row['platform'], row['title']))
+            #print('{} - {}'.format(row['platform'], row['title']))
             web = row['link']
             response = requests.get(web, headers=user_agent)
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -157,8 +159,35 @@ class StadiaScrapper:
 
     def final_data_process(self, df1, df2):
         linked_dfs = df1.join(df2.set_index('idx'), how='left')
+        df_filtered = linked_dfs[linked_dfs['score'] == 1].copy()
 
+        sel = df_filtered.drop(['title_metacritic', 'score', 'link'], axis=1).set_index(['title', 'platform'])
+        sel = sel.sort_values('title').unstack(level=-1)
+
+        sel.columns = [x[1] + '_' + x[0] for x in sel.columns]
+
+        sel.reset_index(inplace=True)
+
+        sorted_colnames = ['title']
+        for i in ['pc_', 'ps4_', 'xboxone_']:
+            for j in ['genere', 'release', 'metascore', 'n_reviews',
+                      'user_score', 'n_user_score',
+                      'developer', 'n_online_multiplayer']:
+                sorted_colnames.append(i + j)
+
+        sel = sel[sorted_colnames]
+
+        # afegim titols sense resultas de busqueda
+
+        title_no_in = set(linked_dfs['title'].values) - set(sel['title'].values)
+
+        df_title_no_in = pd.DataFrame(index=range(len(title_no_in)), columns=sel.columns)
+        df_title_no_in['title'] = title_no_in
+        df_final_selection = sel.append(df_title_no_in).sort_values('title').reset_index(drop=True)
+
+        df_final_selection.to_csv('delete.csv', index=False)
         return linked_dfs
+
 
 if __name__ == '__main__':
     ss = StadiaScrapper()
@@ -173,5 +202,6 @@ if __name__ == '__main__':
     df_games_info = ss.get_games_info(linked_df)
 
     linked_df_with_games = ss.final_data_process(linked_df, df_games_info)
-
-    linked_df_with_games.to_csv("temp/linked_w_games.csv")
+    print('guardant dades...')
+    linked_df_with_games.to_csv('output_data/data.csv', index=False, sep=',')
+    print('dades guardades!')
