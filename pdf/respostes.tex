@@ -157,6 +157,26 @@ s'ha extret (és necessari que aquesta descripció tingui sentit amb el
 títol
 triat).}\label{desenvolupar-una-descripciuxf3-breu-del-conjunt-de-dades-que-sha-extret-uxe9s-necessari-que-aquesta-descripciuxf3-tingui-sentit-amb-el-tuxedtol-triat.}}
 
+Aquest dataset conté dades de tres fonts:
+
+\begin{itemize}
+\item
+  \textbf{Dades de obertes de la web
+  \url{https://store.google.com/es/product/stadia_games}}: Les dades
+  d'aquesta font contenen els títols dels videojocs de la plataforma
+  Stadia disponibles ara o en el futur.
+\item
+  \textbf{Puntuacions dels jocs per a altres plataformes}: Per a cada
+  joc de la plataforma Stadia, s'ha buscat la puntuació de revistes
+  especialitzades i dels usuaris per a les plataformes PC, PlayStation 4
+  i XboxOne. Les dades s'han extret de la pàgina web
+  \url{www.metacritic.com}
+\item
+  \textbf{Preu dels jocs a la plataforma Stadia}: Aquestes dades s'han
+  extret de la pàgina de la plataforma Stadia. Per a accedir a aquestes
+  dades, s'ha d'estar registrat a la plataforma.
+\end{itemize}
+
 \hypertarget{representaciuxf3-gruxe0fica}{%
 \section{4. Representació gràfica}\label{representaciuxf3-gruxe0fica}}
 
@@ -185,6 +205,124 @@ veure un llistat de jocs que anuncien:
 temps de les dades i com s'ha
 recollit.}\label{explicar-els-camps-que-inclou-el-dataset-el-peruxedode-de-temps-de-les-dades-i-com-sha-recollit.}}
 
+El dataset inclou els següents camps.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{title}: Tipus CHAR. Descriu el títol del videojoc.
+\item
+  \textbf{pc\_genere}: Tipus CHAR. Descriu el gènere el videojoc per a
+  PC segons la web metacritic.
+\item
+  \textbf{pc\_release}: Tipus DATE. Data de llançament per a PC sgons la
+  web metacritic.
+\item
+  \textbf{pc\_metascore}: Tipus FLOAT. Conté la mitjana de la nota de
+  revistes especialitzades per al joc en PC.
+\item
+  \textbf{pc\_n\_reviews}: Tipus INT. Conté el número de reviews de
+  revistes especialitzades per al joc en PC.
+\item
+  \textbf{pc\_user\_score}: Tipus FLOAT. Conté la mitjana de la nota
+  donada pels usuaris per al joc en PC.
+\item
+  \textbf{pc\_n\_user\_score}: Tipus INT. Conté el número de reviews
+  d'usuaris per al joc en PC.
+\item
+  \textbf{pc\_developer}: Tipus CHAR. Desenvolupador del joc per a PC.
+\item
+  \textbf{pc\_n\_online\_multiplayer}:Tipus CHAR. Número de jugadors
+  online per al joc en PC.
+\item
+  \textbf{ps4\_genere}: Tipus CHAR. Descriu el gènere el videojoc per a
+  ps4 segons la web metacritic.
+\item
+  \textbf{ps4\_release}: Tipus DATE. Data de llançament per a PC sgons
+  la web metacritic.
+\item
+  \textbf{ps4\_metascore}: Tipus FLOAT. Conté la mitjana de la nota de
+  revistes especialitzades per al joc en PC.
+\item
+  \textbf{ps4\_n\_reviews}: Tipus INT. Conté el número de reviews de
+  revistes especialitzades per al joc en PC.
+\item
+  \textbf{ps4\_user\_score}: Tipus FLOAT. Conté la mitjana de la nota
+  donada pels usuaris per al joc en PC.
+\item
+  \textbf{ps4\_n\_user\_score}: Tipus INT. Conté el número de reviews
+  d'usuaris per al joc en PC.
+\item
+  \textbf{ps4\_developer}: Tipus CHAR.Desenvolupador del joc per a PC.
+\item
+  \textbf{ps4\_n\_online\_multiplayer}: Tipus CHAR. Número de jugadors
+  online per al joc en PC.
+\item
+  \textbf{xboxone\_genere}: Tipus CHAR. Descriu el gènere el videojoc
+  per a xboxone segons la web metacritic.
+\item
+  \textbf{xboxone\_release}: Tipus DATE. Data de llançament per a PC
+  sgons la web metacritic.
+\item
+  \textbf{xboxone\_metascore}: Tipus FLOAT. Conté la mitjana de la nota
+  de revistes especialitzades per al joc en PC.
+\item
+  \textbf{xboxone\_n\_reviews}: Tipus INT. Conté el número de reviews de
+  revistes especialitzades per al joc en PC.
+\item
+  \textbf{xboxone\_user\_score}: Tipus FLOAT. Conté la mitjana de la
+  nota donada pels usuaris per al joc en PC.
+\item
+  \textbf{xboxone\_n\_user\_score}:Tipus INT. Conté el número de reviews
+  d'usuaris per al joc en PC.
+\item
+  \textbf{xboxone\_developer}: Tipus CHAR. Desenvolupador del joc per a
+  PC.
+\item
+  \textbf{xboxone\_n\_online\_multiplayer}: Tipus CHAR. Número de
+  jugadors online per al joc en PC.
+\item
+  \textbf{price\_stadia}: Tipus FLOAT. Preu indicat a la web d'Stadia.
+\end{itemize}
+
+S'ha de tenir en compte que molts jocs només disposen d'informació
+disponible per a cap, una o dues plataformes. En el primer cas, és degut
+a que els jocs encara no han soprtit al mercat. En el segón i tercer
+cas, és degut a que aquests jocs no s'han llançat per a totes les
+plataformes.
+
+El periode de temps de les dades correspon a les dades de cada joc des
+de la seva data de llançament fins al dia en que s'ha executat
+l'scrapper per última vegada. Si l'Scrapper s'executa de nou en el
+futur, les dades de nous jocs apareixeran actualitzades.
+
+El metode per a recollir les dades es resumeix en el següent diagrama:
+
+\includegraphics{diagrama.jpg}
+
+En el cas dels noms dels videojocs (número 1 en el diagrama), aquests
+s'han directament de la pàgina pública de Stadia
+\url{https://store.google.com/es/product/stadia_games}.
+
+Les dades videojocs de la pàgina de metacrític (número 2 en el diagrama)
+s'han extret en dos passos. En el primer pas, s'ha extret el títol i el
+link de \textbf{tots} els jocs de PC, PS4 i XBOXone. Tot i que aquest
+procés pot arribar a durar força minuts, s'ha escollit aquest mètode
+degut a que a l'arxiu \texttt{robots.txt} de la pàgina
+www.metacritic.com s'indica explícitament que no s'utilitzi l'opció de
+cerca quan es fa scraping. En el segon pas, un cop s'ha extret la llista
+de tots els jocs, aquesta s'ha filtrat per a fer coincidir els títols
+dels jocs de la web Metacritic amb els t†itols de la llista de videojocs
+extrets de la web pública de Stadia. Amb la llista filtrada, s'ha
+accedit a la pàgina de cada joc, obtenint-ne les dades d'interès.
+
+Pel que fa a les dades de preus de la web de Stadia (número 3 en el
+diagrama), primer s'ha de fer login amb una compta de Google. Per a fer
+això, la única manera que hem trobat per a fer-ho és fent login a Google
+desde una pàgina externa (en el nostre cas \emph{StackOverflow}), per a
+després accedir a la web de Stadia. Aquest pas només s'executa en el cas
+de tenir accés registrat a la web de Stadia.
+
 \hypertarget{agrauxefments}{%
 \section{6. Agraïments}\label{agrauxefments}}
 
@@ -192,6 +330,9 @@ recollit.}\label{explicar-els-camps-que-inclou-el-dataset-el-peruxedode-de-temps
 \subsubsection{Presentar el propietari del conjunt de dades. És
 necessari incloure cites de recerca o anàlisis anteriors (si n'hi
 ha).}\label{presentar-el-propietari-del-conjunt-de-dades.-uxe9s-necessari-incloure-cites-de-recerca-o-anuxe0lisis-anteriors-si-nhi-ha.}}
+
+Les dades presentades en aquesta pràctica relatives a puntuacions dels
+jocs per a altres plataformes pertanyen a la web www.metacritic.com.
 
 \hypertarget{inspiraciuxf3}{%
 \section{7. Inspiració}\label{inspiraciuxf3}}
@@ -262,11 +403,13 @@ Creative Commons}}
 preferiblement en Python o, alternativament, en
 R.}\label{adjuntar-el-codi-amb-el-qual-sha-generat-el-dataset-preferiblement-en-python-o-alternativament-en-r.}}
 
-El codi:
+El codi es troba en la carpeta \texttt{src} a l'arrel del repositori de
+github {[}\url{https://github.com/KRLSMolina/ScrapingStadia}{]}.
 
-\begin{verbatim}
-var = value
-\end{verbatim}
+A l'arxiu \texttt{scraper\_external.py} es troba el codi necessari per a
+obtenir els títols dels jocs i les dades de la web Metacritic. A l'arxiu
+\texttt{scraper\_stadia.py} es troba el codi per a fer el login a la web
+de Stadia i obtenir les dades referents als preus dels jocs.
 
 \hypertarget{dataset}{%
 \section{10. Dataset}\label{dataset}}
