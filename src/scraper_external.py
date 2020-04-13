@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 
 import pandas as pd
 import unidecode
-import time
 
 from difflib import SequenceMatcher
 import numpy as np
