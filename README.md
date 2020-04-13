@@ -4,7 +4,7 @@ Aquest projecte s'ha realitzat amb l'objectiu d'entregar una pràctica amb els c
 
 A més del codi aquí present, s'entrega amb un document pdf que descriu la feina feta. Aquest document es troba dins la carpeta /pdf d'aquest mateix projecte.
 
-### Instal·lació de les llibreries necessària
+### Instal·lació de les llibreries necessàries
 
 ```
 pip install -r requirements.txt

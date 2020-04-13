@@ -1,14 +1,17 @@
 ---
 title: "Tipologia i Cicle de Vida de les Dades"
-subtitle: "Pràctica 1 - Web Scraping"
-author: "Autors: Carlos Gómez, Carlos Molina"
+author: 'Autors: Carlos Gómez, Carlos Molina'
 date: "Abril 2020"
 output:
   html_document:
-    toc: yes
-    toc_depth: 1
     includes:
       in_header: PAC-header.html
+    toc: yes
+    toc_depth: 1
+  pdf_document:
+    toc: yes
+    toc_depth: '1'
+subtitle: Pràctica 1 - Web Scraping
 ---
 
 *****
@@ -37,11 +40,16 @@ Per tant, en una primera fase ens hem marcat l’objectiu de:
 
 Es tracta d’un llistat, on cada registre es un videojoc, o complement, i s’amplia amb els atributs que donen informació sobre aquest videojoc.
 
-
 # 3. Descripció del dataset
 ### Desenvolupar una descripció breu del conjunt de dades que s'ha extret (és necessari que aquesta descripció tingui sentit amb el títol triat).
 
+Aquest dataset conté dades de tres fonts:
 
+* **Dades de obertes de la web [https://store.google.com/es/product/stadia_games] {https://store.google.com/es/product/stadia_games}**: Les dades d'aquesta font contenen els títols dels videojocs de la plataforma Stadia disponibles ara o en el futur.
+
+* **Puntuacions dels jocs per a altres plataformes**: Per a cada joc de la plataforma Stadia, s'ha buscat la puntuació de revistes especialitzades i dels usuaris per a les plataformes PC, PlayStation 4 i XboxOne. Les dades s'han extret de la pàgina Metacritic.
+
+* **Preu dels jocs a la plataforma Stadia**: Aquestes dades s'han extret de la pàgina de la plataforma Stadia. Per a accedir a aquestes dades, s'ha d'estar registrat a la plataforma.
 
 # 4. Representació gràfica
 ### Presentar una imatge o esquema que identifiqui el dataset visualment
@@ -88,10 +96,9 @@ Per aquest conjunt de dades hem escollit una llicència de Cultura Lliure: ***Re
 # 9. Codi
 ### Adjuntar el codi amb el qual s'ha generat el dataset, preferiblement en Python o, alternativament, en R.
 
-El codi:
-```
-var = value
-```
+El codi es troba en la carpeta "src" a l'arrel del repositori de github [https://github.com/KRLSMolina/ScrapingStadia].
+
+El codi continut a 
 
 # 10. Dataset
 ### Publicar el dataset en format CSV a Zenodo amb una xicoteta descripció.

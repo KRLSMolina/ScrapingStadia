@@ -1,4 +1,7 @@
+selenium
 pandas
 Unidecode
 bs4
 numpy
+configparser
+requests
