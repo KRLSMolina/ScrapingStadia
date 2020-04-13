@@ -3,14 +3,14 @@ title: "Tipologia i Cicle de Vida de les Dades"
 author: 'Autors: Carlos Gómez, Carlos Molina'
 date: "Abril 2020"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: '1'
   html_document:
     includes:
       in_header: PAC-header.html
     toc: yes
     toc_depth: 1
+  pdf_document:
+    toc: yes
+    toc_depth: '1'
 subtitle: Pràctica 1 - Web Scraping
 ---
 
@@ -45,7 +45,7 @@ Es tracta d’un llistat, on cada registre es un videojoc, o complement, i s’a
 
 Aquest dataset conté dades de tres fonts:
 
-* **Dades de obertes de la web [https://store.google.com/es/product/stadia_games](https://store.google.com/es/product/stadia_games)**: Les dades d'aquesta font contenen els títols dels videojocs de la plataforma Stadia disponibles ara o en el futur.
+* **Dades de obertes de la web pública de Stadia [https://store.google.com/es/product/stadia_games](https://store.google.com/es/product/stadia_games)**: Les dades d'aquesta font contenen els títols dels videojocs de la plataforma Stadia disponibles ara o en el futur.
 
 * **Puntuacions dels jocs per a altres plataformes**: Per a cada joc de la plataforma Stadia, s'ha buscat la puntuació de revistes especialitzades i dels usuaris per a les plataformes PC, PlayStation 4 i XboxOne. Les dades s'han extret de la pàgina web [www.metacritic.com](www.metacritic.com)
 
@@ -97,17 +97,17 @@ El dataset inclou els següents camps.
 
 S'ha de tenir en compte que molts jocs només disposen d'informació disponible per a cap, una o dues plataformes. En el primer cas, és degut a que els jocs encara no han soprtit al mercat. En el segón i tercer cas, és degut a que aquests jocs no s'han llançat per a totes les plataformes.
 
-El periode de temps de les dades correspon a les dades de cada joc des de la seva data de llançament fins al dia en que s'ha executat l'scrapper per última vegada. Si l'Scrapper s'executa de nou en el futur, les dades de nous jocs apareixeran actualitzades.
+El periode de temps de les dades correspon a les dades de cada joc des de la seva data de llançament fins al dia en que s'ha executat el scrapper per última vegada. Si el scrapper s'executa de nou en el futur, les dades de jocs nous apareixeran actualitzades.
 
 El metode per a recollir les dades es resumeix en el següent diagrama:
 
 ![](diagrama.jpg)
 
-En el cas dels noms dels videojocs (número 1 en el diagrama), aquests s'han directament de la pàgina pública de Stadia [https://store.google.com/es/product/stadia_games](https://store.google.com/es/product/stadia_games).
+En el cas dels noms dels videojocs (número 1 en el diagrama), aquests s'han extret directament de la pàgina pública de Stadia [https://store.google.com/es/product/stadia_games](https://store.google.com/es/product/stadia_games).
 
-Les dades videojocs de la pàgina de metacrític (número 2 en el diagrama) s'han extret en dos passos. En el primer pas, s'ha extret el títol i el link de **tots** els jocs de PC, PS4 i XBOXone. Tot i que aquest procés pot arribar a durar força minuts, s'ha escollit aquest mètode degut a que a l'arxiu `robots.txt` de la pàgina www.metacritic.com s'indica explícitament que no s'utilitzi l'opció de cerca quan es fa scraping. En el segon pas, un cop s'ha extret la llista de tots els jocs, aquesta s'ha filtrat per a fer coincidir els títols dels jocs de la web Metacritic amb els t†itols de la llista de videojocs extrets de la web pública de Stadia. Amb la llista filtrada, s'ha accedit a la pàgina de cada joc, obtenint-ne les dades d'interès.
+Les dades videojocs de la pàgina de Metacrític (número 2 en el diagrama) s'han extret en dos passos. En el primer pas, s'ha extret el títol i el link de **tots** els jocs de PC, PS4 i XBOXone. Tot i que aquest procés pot arribar a durar força minuts, s'ha escollit aquest mètode degut a que a l'arxiu `robots.txt` de la pàgina [www.metacritic.com](www.metacritic.com) s'indica explícitament que no s'utilitzi l'opció de cerca quan es fa scraping. En el segon pas, un cop s'ha extret la llista de tots els jocs, aquesta s'ha filtrat per a fer coincidir els títols dels jocs de la web Metacritic amb els títols de la llista de videojocs extrets de la web pública de Stadia. Amb la llista filtrada, s'ha accedit a la pàgina de cada joc, obtenint-ne les dades d'interès.
 
-Pel que fa a les dades de preus de la web de Stadia (número 3 en el diagrama), primer s'ha de fer login amb una compta de Google. Per a fer això, la única manera que hem trobat per a fer-ho és fent login a Google desde una pàgina externa (en el nostre cas *StackOverflow*), per a després accedir a la web de Stadia. Aquest pas només s'executa en el cas de tenir accés registrat a la web de Stadia.
+Pel que fa a les dades de preus de la web de Stadia (número 3 en el diagrama), primer s'ha de fer login amb una compta de Google. Per a fer això, l'única manera que hem trobat per a fer-ho és fent login a Google desde una pàgina externa (en el nostre cas *StackOverflow*), per a després accedir a la web de Stadia. Aquest pas només s'executa en el cas de tenir accés a la web de Stadia.
 
 # 6. Agraïments
 ### Presentar el propietari del conjunt de dades. És necessari incloure cites de recerca o anàlisis anteriors (si n'hi ha).
