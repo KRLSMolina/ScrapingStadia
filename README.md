@@ -10,12 +10,40 @@ A més del codi aquí present, s'entrega amb un document pdf que descriu la fein
 pip install -r requirements.txt
 ```
 
+A més, si volem accedir als preus dels jocs de Stadia, haurem d'indicar el nostre nom d'usuari i password a l'arxiu `config.properties`.
+
 ### Executar el codi
 
-```
-python3 scraper.py
-```
+Hi ha quatre modes per a obtenir les dades:
 
-### Descripció del fitxer ouptut
+1. Obtenir totes les dades:
+
+    ```
+    python3 main.py all
+    ```
+
+2. Obtenir només les dades dels títols dels jocs i informació per als jocs en altres plataformes.
+
+    ```
+    python3 main.py external
+    ```
+   
+3. Obtenir només dades dels preus dels jocs de Stadia.
+    
+      ```
+      python3 main.py stadia-only
+      ```
+     
+4. Actualitzar els preus dels jocs en a l'arxiu `output_data/data.csv`.
+
+    ```
+    python3 main.py stadia-update
+    ```
+   
+### Fitxer ouptut
+
+El fitxer output es troba a `output_data/data.csv`
 
 ### Full de respostes de l'exercici 
+
+El full de respostes de l'exercici es troba a `pdf/respostes.pdf`
