@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
         linked_df_with_games = ss.final_data_process(linked_df, df_games_info)
         print('guardant dades...')
-        linked_df_with_games.to_csv('output_data/data.csv', index=False, sep=',')
+        linked_df_with_games.to_csv('output_data/stadia_games_info.csv', index=False, sep=',')
         print('dades guardades!')
 
         if args.stadia == 'all':

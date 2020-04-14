@@ -8,9 +8,6 @@ output:
       in_header: PAC-header.html
     toc: yes
     toc_depth: 1
-  pdf_document:
-    toc: yes
-    toc_depth: '1'
 subtitle: Pràctica 1 - Web Scraping
 ---
 
@@ -78,7 +75,7 @@ El dataset inclou els següents camps.
 * **pc_developer**: Tipus CHAR. Desenvolupador del joc per a PC.
 * **pc_n_online_multiplayer**:Tipus CHAR. Número de jugadors online per al joc en PC.
 * **ps4_genere**: Tipus CHAR. Descriu el gènere el videojoc per a ps4 segons la web metacritic.
-* **ps4_release**: Tipus DATE. Data de llançament per a PC sgons la web metacritic.
+* **ps4_release**: Tipus DATE. Data de llançament per a PC segons la web metacritic.
 * **ps4_metascore**: Tipus FLOAT. Conté la mitjana de la nota de revistes especialitzades per al joc en PC.
 * **ps4_n_reviews**: Tipus INT. Conté el número de reviews de revistes especialitzades per al joc en PC.
 * **ps4_user_score**: Tipus FLOAT. Conté la mitjana de la nota donada pels usuaris per al joc en PC.
@@ -86,7 +83,7 @@ El dataset inclou els següents camps.
 * **ps4_developer**: Tipus CHAR.Desenvolupador del joc per a PC.
 * **ps4_n_online_multiplayer**: Tipus CHAR. Número de jugadors online per al joc en PC.
 * **xboxone_genere**: Tipus CHAR. Descriu el gènere el videojoc per a xboxone segons la web metacritic.
-* **xboxone_release**: Tipus DATE. Data de llançament per a PC sgons la web metacritic.
+* **xboxone_release**: Tipus DATE. Data de llançament per a PC segons la web metacritic.
 * **xboxone_metascore**: Tipus FLOAT. Conté la mitjana de la nota de revistes especialitzades per al joc en PC.
 * **xboxone_n_reviews**: Tipus INT. Conté el número de reviews de revistes especialitzades per al joc en PC.
 * **xboxone_user_score**: Tipus FLOAT. Conté la mitjana de la nota donada pels usuaris per al joc en PC.
@@ -131,7 +128,7 @@ Una de les utilitats que pot tenir aquest script és la de extreure la informaci
 
 Per aquest conjunt de dades hem escollit una llicència de Cultura Lliure: ***Reconeixement-CompartirIgual 4.0 Internacional de Creative Commons***
 
-![CC BY-SA 4.0 License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
+![CC BY-SA 4.0 License](https://licensebuttons.net/l/by-sa/4.0/88x31.png)
 
 * **BY:** Amb aquest tipus de llicència es dóna llibertat per copiar, reproduir o modificar el codi, sempre que es reconegui l’autoria del projecte original, per donar valor a la feina feta en aquesta pràctica.
 * **SA:** També afegim que els projectes derivats d’aquests, es comparteixin de la mateixa manera, per evitar que un producte derivat d’aquest tingui una llicència que prohibeixi l’ús comercial, limitant així les possibilitats de qualsevol persona que vulgui desenvolupar
@@ -140,15 +137,24 @@ Per aquest conjunt de dades hem escollit una llicència de Cultura Lliure: ***Re
 # 9. Codi
 ### Adjuntar el codi amb el qual s'ha generat el dataset, preferiblement en Python o, alternativament, en R.
 
-El codi es troba en la carpeta `src` a l'arrel del repositori de github [https://github.com/KRLSMolina/ScrapingStadia].
+El codi es troba en la carpeta `src` a l'arrel del repositori de [github.com/KRLSMolina/ScrapingStadia](https://github.com/KRLSMolina/ScrapingStadia).
 
 A l'arxiu `scraper_external.py` es troba el codi necessari per a obtenir els títols dels jocs i les dades de la web Metacritic. A l'arxiu `scraper_stadia.py` es troba el codi per a fer el login a la web de Stadia i obtenir les dades referents als preus dels jocs.
 
 # 10. Dataset
 ### Publicar el dataset en format CSV a Zenodo amb una xicoteta descripció.
 
+El DOI del dataset a Zenodo: [https://doi.org/10.5281/zenodo.3750425](https://doi.org/10.5281/zenodo.3750425)
 
 # 11. Lliurar
 ### Presentar el treball amb el DOI del dataset a Github
 
 Tota la informació es pot trobar al repository de Github: [https://github.com/KRLSMolina/ScrapingStadia](https://github.com/KRLSMolina/ScrapingStadia)
+
+# 12. Contribucions al treball
+
+Contribucions             | Signa
+-------------             | -----
+Recerca prèvia            | CM, CG
+Redacció de les respostes | CM, CG
+Desenvolupament codi      | CM, CG

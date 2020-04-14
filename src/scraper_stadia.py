@@ -62,10 +62,10 @@ def add_stadia_data(update_external=True):
     # Update file with external data
     df = pd.DataFrame(games_info)
     if update_external:
-        df = df[df['type_game'] == 'Game']
+        df = df[df['type_game'].isin(['Juego','Game','Joc'])]
         df['price'] = df['price'].apply(lambda x: x.split('\n')[0])
-        df.loc[df['price'].isin(['Game', 'Claimed', 'Free']), 'price'] = 'Unknown'
-        df_external = pd.read_csv('output_data/data.csv')
+        df.loc[df['price'].isin(['Game', 'Juego', 'Joc', 'Claimed', 'Reclamat', 'Obtenido', 'Free', 'Gratis', 'Purchased', 'Comprado', 'S\'ha comprat']), 'price'] = 'Unknown'
+        df_external = pd.read_csv('output_data/stadia_games_info.csv')
 
         if 'price_stadia' in df_external.columns:
             df_external.drop('price_stadia', axis=1, inplace=True)
@@ -88,7 +88,7 @@ def add_stadia_data(update_external=True):
                 df_stadia_titles_match = df_stadia_titles_match.append(
                     pd.DataFrame({'title': [row['title']], 'price_stadia': [row['price']]})
                 )
-            df_external.merge(df_stadia_titles_match, on='title', how='outer').to_csv('output_data/data.csv',
+            df_external.merge(df_stadia_titles_match, on='title', how='outer').to_csv('output_data/stadia_games_info.csv',
                                                                                       index=False)
     else:
-        df.to_csv('output_data/data.csv', index=False)
+        df.to_csv('output_data/stadia_games_info.csv', index=False)

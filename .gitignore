@@ -6,3 +6,5 @@ venv
 *.ipynb
 temp/
 src/__pycache__/
+pdf/respostes.tex
+pdf/respostes.log
