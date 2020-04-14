@@ -42,7 +42,7 @@ Hi ha quatre modes per a obtenir les dades:
    
 ### Fitxer ouptut
 
-El fitxer output es troba a `output_data/data.csv`
+El fitxer output es troba a `output_data/stadia_games_info.csv`
 
 ### Full de respostes de l'exercici 
 
